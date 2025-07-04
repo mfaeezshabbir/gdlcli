@@ -1,0 +1,13 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g>
+        <!-- Google Drive triangle stylization -->
+        <polygon points="64,28 100,92 28,92" fill="#FFF"/>
+        <polygon points="64,38 92,88 36,88" fill="#34A853"/>
+        <polygon points="64,38 92,88 64,88" fill="#FBBC05"/>
+        <polygon points="64,38 36,88 64,88" fill="#EA4335"/>
+    </g>
+    <!-- "gdlcli" text below the icon -->
+    <text x="64" y="116" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="20" fill="#FFF" font-weight="bold" letter-spacing="2">
+        gdlcli
+    </text>
+</svg>
