@@ -1,7 +1,7 @@
 
 # Changelog
 
-All notable changes to the `gdl` (Google Drive Loader) project will be documented in this file.
+All notable changes to the `gdlcli` (Google Drive Loader) project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-07-04
 
 ### Added
-- 🎉 **Initial release** of gdl as a professional Python package
+- 🎉 **Initial release** of gdlcli as a professional Python package
 - **Universal Google Drive downloader** supporting all file types
 - **Multiple URL format support**:
   - `https://drive.google.com/file/d/FILE_ID/view`
@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `https://docs.google.com/spreadsheets/d/FILE_ID/export`
   - `https://docs.google.com/presentation/d/FILE_ID/export`
   - `https://drive.google.com/open?id=FILE_ID`
-- **Command-line interface** with `gdl` command
+- **Command-line interface** with `gdlcli` command
 - **Python API** for programmatic usage
 - **Progress tracking** with tqdm progress bars
 - **Resume capability** for interrupted downloads
@@ -41,10 +41,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Comprehensive logging** with configurable levels
 - **Auto-filename detection** from response headers
 - **Package structure** with proper modules:
-  - `gdl.downloader` - Core download functionality
-  - `gdl.cli` - Command-line interface
-  - `gdl.utils` - Utility functions
-  - `gdl.config` - Configuration management
+  - `gdlcli.downloader` - Core download functionality
+  - `gdlcli.cli` - Command-line interface
+  - `gdlcli.utils` - Utility functions
+  - `gdlcli.config` - Configuration management
 
 ### Technical Features
 - **Streaming downloads** for memory efficiency
@@ -86,22 +86,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Version 1.0.0 - Major Release
 
-This is the first stable release of `gdl` as a professional Python package. The package has been completely restructured from a standalone script to a proper Python package with the following improvements:
+This is the first stable release of `gdlcli` as a professional Python package. The package has been completely restructured from a standalone script to a proper Python package with the following improvements:
 
 #### 🚀 **Package Transformation**
-- **Before**: Standalone `gdl.py` script
+- **Before**: Standalone `gdlcli.py` script
 - **After**: Professional Python package with proper structure
 
 #### 📦 **Installation Improvements**
 - **Before**: `git clone` and manual script execution
-- **After**: `pip install gdl` (ready for PyPI)
+- **After**: `pip install gdlcli` (ready for PyPI)
 
 #### 🎯 **Usage Simplification**
-- **Before**: `python gdl.py --url "URL"`
-- **After**: `gdl --url "URL"` (global command)
+- **Before**: `python gdlcli.py --url "URL"`
+- **After**: `gdlcli --url "URL"` (global command)
 
 #### 🐍 **Python API Addition**
-- **New**: Import and use as library: `import gdl; gdl.download("URL", "output.pdf")`
+- **New**: Import and use as library: `import gdlcli; gdlcli.download("URL", "output.pdf")`
 - **New**: Advanced API with custom configuration
 - **New**: Error handling with custom exceptions
 
@@ -124,26 +124,26 @@ If you were using the standalone script version:
 
 #### Old Usage
 ```bash
-git clone https://github.com/mfaeezshabbir/gdl.git
-cd gdl
-python gdl.py --url "https://drive.google.com/file/d/FILE_ID/view" --output file.pdf
+git clone https://github.com/mfaeezshabbir/gdlcli.git
+cd gdlcli
+python gdlcli.py --url "https://drive.google.com/file/d/FILE_ID/view" --output file.pdf
 ```
 
 #### New Usage
 ```bash
-pip install gdl
-gdl --url "https://drive.google.com/file/d/FILE_ID/view" --output file.pdf
+pip install gdlcli
+gdlcli --url "https://drive.google.com/file/d/FILE_ID/view" --output file.pdf
 ```
 
 #### Python Integration (New)
 ```python
-import gdl
+import gdlcli
 
 # Simple usage
-gdl.download("https://drive.google.com/file/d/FILE_ID/view", "file.pdf")
+gdlcli.download("https://drive.google.com/file/d/FILE_ID/view", "file.pdf")
 
 # Advanced usage
-downloader = gdl.GDL()
+downloader = gdlcli.gdlcli()
 success = downloader.download_file("URL", "output.pdf", resume=True)
 ```
 
@@ -176,8 +176,8 @@ Please report security vulnerabilities to [mfaeezshabbir](https://github.com/mfa
 ## Support
 
 ### Getting Help
-- 📝 [Issues](https://github.com/mfaeezshabbir/gdl/issues) - Bug reports and feature requests
-- 💬 [Discussions](https://github.com/mfaeezshabbir/gdl/discussions) - Questions and community support
+- 📝 [Issues](https://github.com/mfaeezshabbir/gdlcli/issues) - Bug reports and feature requests
+- 💬 [Discussions](https://github.com/mfaeezshabbir/gdlcli/discussions) - Questions and community support
 - 📧 [Contact](https://github.com/mfaeezshabbir) - Direct contact with maintainer
 
 ### Known Issues
@@ -195,6 +195,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Note**: This changelog will be updated with each release. For the most current information, please check the [GitHub repository](https://github.com/mfaeezshabbir/gdl).
+**Note**: This changelog will be updated with each release. For the most current information, please check the [GitHub repository](https://github.com/mfaeezshabbir/gdlcli).
 
 *Last updated: July 4, 2025 at 12:43 UTC by [@mfaeezshabbir](https://github.com/mfaeezshabbir)*

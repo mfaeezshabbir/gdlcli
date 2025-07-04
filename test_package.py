@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
 """
-Simple test script to verify the gdl package is working correctly.
+Simple test script to verify the gdlcli package is working correctly.
 """
 
 def test_imports():
     """Test that all imports work correctly."""
     try:
-        import gdl
-        from gdl import GDL, URLError, DownloadError
-        from gdl.utils import extract_file_id, validate_url
-        from gdl.config import Config
+        import gdlcli
+        from gdlcli import gdlcli, URLError, DownloadError
+        from gdlcli.utils import extract_file_id, validate_url
+        from gdlcli.config import Config
         print("✓ All imports successful")
         return True
     except ImportError as e:
@@ -18,14 +18,14 @@ def test_imports():
 
 def test_version():
     """Test that version is accessible."""
-    import gdl
-    print(f"✓ Version: {gdl.__version__}")
-    return gdl.__version__ == "1.0.0"
+    import gdlcli
+    print(f"✓ Version: {gdlcli.__version__}")
+    return gdlcli.__version__ == "1.0.0"
 
 def test_basic_functionality():
     """Test basic functionality."""
-    from gdl.utils import extract_file_id, validate_url
-    from gdl.config import Config
+    from gdlcli.utils import extract_file_id, validate_url
+    from gdlcli.config import Config
     
     # Test URL parsing
     test_url = 'https://drive.google.com/file/d/1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms/view'
@@ -44,7 +44,7 @@ def test_basic_functionality():
 
 def main():
     """Run all tests."""
-    print("=== Testing gdl Package ===")
+    print("=== Testing gdlcli Package ===")
     
     tests = [
         ("Imports", test_imports),

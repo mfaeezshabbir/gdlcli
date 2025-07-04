@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
-Batch download example for gdl package.
+Batch download example for gdlcli package.
 Demonstrates downloading multiple files from a list.
 """
 
-import gdl
+import gdlcli
 import os
 
 def create_sample_urls_file():
     """Create a sample URLs file for demonstration."""
     urls = [
-        "# Sample URLs file for gdl batch download",
+        "# Sample URLs file for gdlcli batch download",
         "# Lines starting with # are ignored",
         "",
         "# Example URLs (replace with actual Google Drive URLs)",
@@ -29,7 +29,7 @@ def create_sample_urls_file():
 
 def main():
     """Main example function."""
-    print("=== gdl Batch Download Example ===")
+    print("=== gdlcli Batch Download Example ===")
     print()
     
     # Create sample URLs file
@@ -41,7 +41,7 @@ def main():
     print()
     
     # Create downloader instance
-    downloader = gdl.GDL(
+    downloader = gdlcli.gdlcli(
         output_dir=output_dir,
         log_level="INFO"
     )

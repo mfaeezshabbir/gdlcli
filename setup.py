@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-gdl - Google Drive Loader
+gdlcli - Google Drive Loader
 A fast, lightweight Python package for downloading any file from Google Drive.
 """
 
@@ -17,14 +17,14 @@ with open(os.path.join(this_directory, 'requirements.txt'), encoding='utf-8') as
     requirements = [line.strip() for line in f if line.strip() and not line.startswith('#')]
 
 setup(
-    name="gdl",
+    name="gdlcli",
     version="1.0.0",
     author="mfaeezshabbir",
     author_email="mfaeezshabbir@gmail.com",
     description="A fast, lightweight Python package for downloading any file from Google Drive",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/mfaeezshabbir/gdl",
+    url="https://github.com/mfaeezshabbir/gdlcli",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -56,13 +56,13 @@ setup(
     },
     entry_points={
         "console_scripts": [
-            "gdl=gdl.cli:main",
+            "gdlcli=gdlcli.cli:main",
         ],
     },
     keywords="google-drive download file-downloader cli api",
     project_urls={
-        "Bug Reports": "https://github.com/mfaeezshabbir/gdl/issues",
-        "Source": "https://github.com/mfaeezshabbir/gdl",
-        "Documentation": "https://github.com/mfaeezshabbir/gdl#readme",
+        "Bug Reports": "https://github.com/mfaeezshabbir/gdlcli/issues",
+        "Source": "https://github.com/mfaeezshabbir/gdlcli",
+        "Documentation": "https://github.com/mfaeezshabbir/gdlcli#readme",
     },
 )

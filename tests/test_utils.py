@@ -1,9 +1,9 @@
 """
-Test utilities for gdl package.
+Test utilities for gdlcli package.
 """
 
 import pytest
-from gdl.utils import (
+from gdlcli.utils import (
     extract_file_id, validate_url, build_download_url,
     format_bytes, format_speed, is_google_docs_url
 )

@@ -1,6 +1,6 @@
 """
-Core downloader module for gdl package.
-Contains the main GDL class and download logic.
+Core downloader module for gdlcli package.
+Contains the main gdlcli class and download logic.
 """
 
 import os
@@ -30,14 +30,14 @@ class DownloadError(Exception):
     pass
 
 
-class GDL:
+class gdlcli:
     """
     Google Drive Loader - Main class for downloading files from Google Drive.
     """
     
     def __init__(self, config_file: Optional[str] = None, **kwargs):
         """
-        Initialize GDL with configuration.
+        Initialize gdlcli with configuration.
         
         Args:
             config_file: Optional path to configuration file

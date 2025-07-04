@@ -1,9 +1,9 @@
-# gdl - Google Drive Loader
+# gdlcli - Google Drive Loader
 
-[![PyPI version](https://badge.fury.io/py/gdl.svg)](https://badge.fury.io/py/gdl)
-[![Python versions](https://img.shields.io/pypi/pyversions/gdl.svg)](https://pypi.org/project/gdl/)
+[![PyPI version](https://badge.fury.io/py/gdlcli.svg)](https://badge.fury.io/py/gdlcli)
+[![Python versions](https://img.shields.io/pypi/pyversions/gdlcli.svg)](https://pypi.org/project/gdlcli/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Downloads](https://pepy.tech/badge/gdl)](https://pepy.tech/project/gdl)
+<!-- [![Downloads](https://pepy.tech/badge/gdlcli)](https://pepy.tech/project/gdlcli) -->
 
 A fast, lightweight Python package for downloading any file from Google Drive. Simple CLI tool and powerful Python library.
 
@@ -35,18 +35,18 @@ A fast, lightweight Python package for downloading any file from Google Drive. S
 
 ### From PyPI (Recommended)
 ```bash
-pip install gdl
+pip install gdlcli
 ```
 
 ### From GitHub
 ```bash
-pip install git+https://github.com/mfaeezshabbir/gdl.git
+pip install git+https://github.com/mfaeezshabbir/gdlcli.git
 ```
 
 ### Development Installation
 ```bash
-git clone https://github.com/mfaeezshabbir/gdl.git
-cd gdl
+git clone https://github.com/mfaeezshabbir/gdlcli.git
+cd gdlcli
 pip install -e .
 ```
 
@@ -59,24 +59,24 @@ pip install -e .
 ### Command Line
 ```bash
 # Install the package
-pip install gdl
+pip install gdlcli
 
 # Download any file
-gdl --url "https://drive.google.com/file/d/FILE_ID/view" --output myfile.pdf
+gdlcli --url "https://drive.google.com/file/d/FILE_ID/view" --output myfile.pdf
 
 # Your specific Google Sheets file
-gdl --url "https://docs.google.com/spreadsheets/d/ID/export" --format xlsx --output spreadsheet.xlsx
+gdlcli --url "https://docs.google.com/spreadsheets/d/ID/export" --format xlsx --output spreadsheet.xlsx
 ```
 
 ### Python API
 ```python
-import gdl
+import gdlcli
 
 # Simple download
-gdl.download("https://drive.google.com/file/d/FILE_ID/view", "output.pdf")
+gdlcli.download("https://drive.google.com/file/d/FILE_ID/view", "output.pdf")
 
 # Advanced usage
-downloader = gdl.GDL()
+downloader = gdlcli.gdlcli()
 success = downloader.download_file(
     "https://drive.google.com/file/d/FILE_ID/view",
     "output.pdf",
@@ -89,28 +89,28 @@ success = downloader.download_file(
 ### Basic Commands
 ```bash
 # Download with auto-detected filename
-gdl --url "https://drive.google.com/file/d/FILE_ID/view" --auto-name
+gdlcli --url "https://drive.google.com/file/d/FILE_ID/view" --auto-name
 
 # Download to specific location
-gdl --url "https://drive.google.com/file/d/FILE_ID/view" --output ./downloads/myfile.pdf
+gdlcli --url "https://drive.google.com/file/d/FILE_ID/view" --output ./downloads/myfile.pdf
 
 # Download with progress and resume capability
-gdl --url "https://drive.google.com/file/d/FILE_ID/view" --output largefile.zip --resume
+gdlcli --url "https://drive.google.com/file/d/FILE_ID/view" --output largefile.zip --resume
 
 # Verbose output for debugging
-gdl --url "https://drive.google.com/file/d/FILE_ID/view" --verbose
+gdlcli --url "https://drive.google.com/file/d/FILE_ID/view" --verbose
 ```
 
 ### Export Google Docs/Sheets/Slides
 ```bash
 # Export Google Doc as PDF
-gdl --url "https://docs.google.com/document/d/DOC_ID/export" --format pdf --output document.pdf
+gdlcli --url "https://docs.google.com/document/d/DOC_ID/export" --format pdf --output document.pdf
 
 # Export Google Sheet as Excel
-gdl --url "https://docs.google.com/spreadsheets/d/SHEET_ID/export" --format xlsx --output spreadsheet.xlsx
+gdlcli --url "https://docs.google.com/spreadsheets/d/SHEET_ID/export" --format xlsx --output spreadsheet.xlsx
 
 # Export Google Slides as PowerPoint
-gdl --url "https://docs.google.com/presentation/d/SLIDES_ID/export" --format pptx --output presentation.pptx
+gdlcli --url "https://docs.google.com/presentation/d/SLIDES_ID/export" --format pptx --output presentation.pptx
 ```
 
 ### Batch Downloads
@@ -121,12 +121,12 @@ https://docs.google.com/spreadsheets/d/SHEET_ID/export
 https://drive.google.com/file/d/FILE_ID2/view" > urls.txt
 
 # Download all files
-gdl --batch urls.txt --output-dir ./downloads/
+gdlcli --batch urls.txt --output-dir ./downloads/
 ```
 
 ### Command Options
 ```bash
-gdl [OPTIONS]
+gdlcli [OPTIONS]
 
 Required (one of):
   --url URL                Google Drive file URL
@@ -148,10 +148,10 @@ Options:
 
 ### Simple Usage
 ```python
-import gdl
+import gdlcli
 
 # Quick download function
-success = gdl.download(
+success = gdlcli.download(
     url="https://drive.google.com/file/d/FILE_ID/view",
     output="myfile.pdf"
 )
@@ -159,10 +159,10 @@ success = gdl.download(
 
 ### Advanced Usage
 ```python
-import gdl
+import gdlcli
 
 # Create downloader instance with custom config
-downloader = gdl.GDL(
+downloader = gdlcli.gdlcli(
     config_file="my_config.json",
     max_retries=5,
     chunk_size=16384
@@ -188,11 +188,11 @@ print(f"Downloaded {count} files successfully")
 
 ### Error Handling
 ```python
-import gdl
-from gdl.downloader import URLError, DownloadError
+import gdlcli
+from gdlcli.downloader import URLError, DownloadError
 
 try:
-    downloader = gdl.GDL()
+    downloader = gdlcli.gdlcli()
     downloader.download_file("https://drive.google.com/file/d/INVALID/view", "output.pdf")
 except URLError as e:
     print(f"Invalid URL: {e}")
@@ -204,7 +204,7 @@ except Exception as e:
 
 ## 🔗 Supported URLs
 
-gdl automatically handles all Google Drive URL formats:
+gdlcli automatically handles all Google Drive URL formats:
 
 - `https://drive.google.com/file/d/FILE_ID/view`
 - `https://drive.google.com/file/d/FILE_ID/view?usp=sharing`
@@ -244,7 +244,7 @@ gdl automatically handles all Google Drive URL formats:
 ## ⚙️ Configuration
 
 ### Configuration File
-Create `~/.gdl/config.json` or `gdl_config.json` in your project:
+Create `~/.gdlcli/config.json` or `gdlcli_config.json` in your project:
 
 ```json
 {
@@ -261,17 +261,17 @@ Create `~/.gdl/config.json` or `gdl_config.json` in your project:
 
 ### Environment Variables
 ```bash
-export GDL_OUTPUT_DIR="./my_downloads"
-export GDL_MAX_RETRIES="5"
-export GDL_LOG_LEVEL="DEBUG"
+export gdlcli_OUTPUT_DIR="./my_downloads"
+export gdlcli_MAX_RETRIES="5"
+export gdlcli_LOG_LEVEL="DEBUG"
 ```
 
 ### Python Configuration
 ```python
-import gdl
+import gdlcli
 
 # Override configuration
-downloader = gdl.GDL(
+downloader = gdlcli.gdlcli(
     output_dir="./custom_downloads",
     max_retries=5,
     chunk_size=16384,
@@ -291,12 +291,12 @@ https://drive.google.com/file/d/PAPER2_ID/view
 https://drive.google.com/file/d/PAPER3_ID/view" > papers.txt
 
 # Download all papers
-gdl --batch papers.txt --output-dir ./research_papers/ --verbose
+gdlcli --batch papers.txt --output-dir ./research_papers/ --verbose
 ```
 
 #### Export Multiple Spreadsheets
 ```python
-import gdl
+import gdlcli
 
 spreadsheet_urls = [
     "https://docs.google.com/spreadsheets/d/SHEET1_ID/export",
@@ -304,7 +304,7 @@ spreadsheet_urls = [
     "https://docs.google.com/spreadsheets/d/SHEET3_ID/export"
 ]
 
-downloader = gdl.GDL()
+downloader = gdlcli.gdlcli()
 
 for i, url in enumerate(spreadsheet_urls, 1):
     success = downloader.download_file(
@@ -321,22 +321,22 @@ for i, url in enumerate(spreadsheet_urls, 1):
 #### Resume Large Downloads
 ```bash
 # Start download (might be interrupted)
-gdl --url "https://drive.google.com/file/d/LARGE_FILE_ID/view" --output large_dataset.zip
+gdlcli --url "https://drive.google.com/file/d/LARGE_FILE_ID/view" --output large_dataset.zip
 
 # Resume the download later
-gdl --url "https://drive.google.com/file/d/LARGE_FILE_ID/view" --output large_dataset.zip --resume
+gdlcli --url "https://drive.google.com/file/d/LARGE_FILE_ID/view" --output large_dataset.zip --resume
 ```
 
 #### Custom Processing Pipeline
 ```python
-import gdl
+import gdlcli
 import pandas as pd
 
 def download_and_process_sheet(url, output_path):
     """Download Google Sheet and process with pandas."""
     
     # Download as Excel file
-    downloader = gdl.GDL()
+    downloader = gdlcli.gdlcli()
     success = downloader.download_file(
         url=url,
         output_path=output_path,
@@ -363,28 +363,28 @@ df = download_and_process_sheet(
 
 ### Setup Development Environment
 ```bash
-git clone https://github.com/mfaeezshabbir/gdl.git
-cd gdl
+git clone https://github.com/mfaeezshabbir/gdlcli.git
+cd gdlcli
 pip install -e ".[dev]"
 ```
 
 ### Run Tests
 ```bash
 pytest
-pytest --cov=gdl  # With coverage
+pytest --cov=gdlcli  # With coverage
 ```
 
 ### Code Formatting
 ```bash
-black gdl/
-flake8 gdl/
-mypy gdl/
+black gdlcli/
+flake8 gdlcli/
+mypy gdlcli/
 ```
 
 ### Package Structure
 ```
-gdl/
-├── gdl/                    # Main package
+gdlcli/
+├── gdlcli/                    # Main package
 │   ├── __init__.py        # Package initialization
 │   ├── cli.py             # Command-line interface
 │   ├── downloader.py      # Core download logic
@@ -405,14 +405,14 @@ Contributions are welcome! Please feel free to submit a Pull Request. For major 
 3. Make your changes
 4. Add tests for new functionality
 5. Ensure tests pass (`pytest`)
-6. Format code (`black gdl/`)
+6. Format code (`black gdlcli/`)
 7. Commit changes (`git commit -m 'Add amazing feature'`)
 8. Push to branch (`git push origin feature/amazing-feature`)
 9. Open a Pull Request
 
 ## 📊 Performance
 
-gdl is optimized for performance:
+gdlcli is optimized for performance:
 
 - **Streaming downloads**: Low memory usage even for large files
 - **Resume capability**: No need to restart failed downloads
@@ -444,8 +444,8 @@ gdl is optimized for performance:
 
 ### Getting Help
 
-- 📝 [Open an issue](https://github.com/mfaeezshabbir/gdl/issues) for bug reports
-- 💬 [Start a discussion](https://github.com/mfaeezshabbir/gdl/discussions) for questions
+- 📝 [Open an issue](https://github.com/mfaeezshabbir/gdlcli/issues) for bug reports
+- 💬 [Start a discussion](https://github.com/mfaeezshabbir/gdlcli/discussions) for questions
 - 📧 Contact: [mfaeezshabbir](https://github.com/mfaeezshabbir)
 
 ## 📜 License
@@ -464,6 +464,6 @@ See [CHANGELOG.md](CHANGELOG.md) for detailed release notes.
 
 ---
 
-**gdl** - Making Google Drive downloads simple, fast, and reliable. 🚀
+**gdlcli** - Making Google Drive downloads simple, fast, and reliable. 🚀
 
 *Last updated: July 4, 2025*

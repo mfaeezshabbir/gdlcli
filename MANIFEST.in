@@ -2,7 +2,7 @@ include README.md
 include LICENSE
 include CHANGELOG.md
 include requirements.txt
-recursive-include gdl *.py
+recursive-include gdlcli *.py
 recursive-include tests *.py
 recursive-include examples *.py
 global-exclude *.pyc

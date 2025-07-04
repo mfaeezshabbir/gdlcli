@@ -1,5 +1,5 @@
 """
-Configuration management for gdl package.
+Configuration management for gdlcli package.
 Handles loading configuration from files, environment variables, and defaults.
 """
 
@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 class Config:
-    """Configuration manager for gdl."""
+    """Configuration manager for gdlcli."""
     
     # Default configuration values
     DEFAULT_CONFIG = {
@@ -25,7 +25,7 @@ class Config:
     }
     
     # Environment variable prefixes
-    ENV_PREFIX = "GDL_"
+    ENV_PREFIX = "gdlcli_"
     
     def __init__(self, config_file: Optional[str] = None, **kwargs):
         """
@@ -51,9 +51,9 @@ class Config:
     def _find_config_file(self) -> Optional[str]:
         """Find configuration file in standard locations."""
         possible_paths = [
-            "gdl_config.json",
-            os.path.expanduser("~/.gdl/config.json"),
-            os.path.expanduser("~/.config/gdl/config.json")
+            "gdlcli_config.json",
+            os.path.expanduser("~/.gdlcli/config.json"),
+            os.path.expanduser("~/.config/gdlcli/config.json")
         ]
         
         for path in possible_paths:

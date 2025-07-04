@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-Google Docs export example for gdl package.
+Google Docs export example for gdlcli package.
 Demonstrates exporting Google Docs, Sheets, and Slides in various formats.
 """
 
-import gdl
+import gdlcli
 
 def main():
     """Main example function."""
-    print("=== gdl Google Docs Export Example ===")
+    print("=== gdlcli Google Docs Export Example ===")
     print()
     
     # Example URLs (replace with actual Google Docs URLs)
@@ -31,7 +31,7 @@ def main():
     ]
     
     # Create downloader instance
-    downloader = gdl.GDL(log_level="INFO")
+    downloader = gdlcli.gdlcli(log_level="INFO")
     
     for example in examples:
         print(f"--- {example['type']} Export ---")
@@ -59,7 +59,7 @@ def main():
     print("=== Export with Custom Configuration ===")
     
     # Example with custom configuration
-    custom_downloader = gdl.GDL(
+    custom_downloader = gdlcli.gdlcli(
         chunk_size=32768,
         max_retries=5,
         output_dir="./exports"

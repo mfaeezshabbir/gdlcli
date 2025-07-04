@@ -1,5 +1,5 @@
 """
-Command-line interface for gdl package.
+Command-line interface for gdlcli package.
 Provides the main CLI entry point and argument parsing.
 """
 
@@ -8,7 +8,7 @@ import sys
 import os
 from typing import Optional
 
-from .downloader import GDL, URLError, DownloadError
+from .downloader import gdlcli, URLError, DownloadError
 from .utils import validate_url
 from . import __version__
 
@@ -16,14 +16,14 @@ from . import __version__
 def create_parser() -> argparse.ArgumentParser:
     """Create and configure the argument parser."""
     parser = argparse.ArgumentParser(
-        prog='gdl',
-        description='gdl - Google Drive Loader: Download any file from Google Drive',
+        prog='gdlcli',
+        description='gdlcli - Google Drive Loader: Download any file from Google Drive',
         epilog='''
 Examples:
-  gdl --url "https://drive.google.com/file/d/FILE_ID/view" --output myfile.pdf
-  gdl --url "https://docs.google.com/spreadsheets/d/ID/export" --format xlsx --output data.xlsx
-  gdl --batch urls.txt --output-dir ./downloads/
-  gdl --url "https://drive.google.com/file/d/ID/view" --auto-name --verbose
+  gdlcli --url "https://drive.google.com/file/d/FILE_ID/view" --output myfile.pdf
+  gdlcli --url "https://docs.google.com/spreadsheets/d/ID/export" --format xlsx --output data.xlsx
+  gdlcli --batch urls.txt --output-dir ./downloads/
+  gdlcli --url "https://drive.google.com/file/d/ID/view" --auto-name --verbose
         ''',
         formatter_class=argparse.RawDescriptionHelpFormatter
     )
@@ -92,7 +92,7 @@ Examples:
     parser.add_argument(
         '--version',
         action='version',
-        version=f'gdl {__version__}'
+        version=f'gdlcli {__version__}'
     )
     
     return parser
@@ -126,7 +126,7 @@ def handle_single_download(args: argparse.Namespace) -> bool:
         if args.verbose:
             config_options['log_level'] = 'DEBUG'
         
-        downloader = GDL(config_file=args.config, **config_options)
+        downloader = gdlcli(config_file=args.config, **config_options)
         
         # Determine output path
         output_path = args.output
@@ -197,7 +197,7 @@ def handle_batch_download(args: argparse.Namespace) -> bool:
         if args.verbose:
             config_options['log_level'] = 'DEBUG'
         
-        downloader = GDL(config_file=args.config, **config_options)
+        downloader = gdlcli(config_file=args.config, **config_options)
         
         print(f"Starting batch download from: {args.batch}")
         print(f"Output directory: {args.output_dir}")

@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gdl"
+name = "gdlcli"
 version = "1.0.0"
 description = "A fast, lightweight Python package for downloading any file from Google Drive"
 readme = "README.md"
@@ -42,16 +42,16 @@ dev = [
 ]
 
 [project.scripts]
-gdl = "gdl.cli:main"
+gdlcli = "gdlcli.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/mfaeezshabbir/gdl"
-"Bug Reports" = "https://github.com/mfaeezshabbir/gdl/issues"
-Source = "https://github.com/mfaeezshabbir/gdl"
+Homepage = "https://github.com/mfaeezshabbir/gdlcli"
+"Bug Reports" = "https://github.com/mfaeezshabbir/gdlcli/issues"
+Source = "https://github.com/mfaeezshabbir/gdlcli"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["gdl*"]
+include = ["gdlcli*"]
 
 [tool.black]
 line-length = 88

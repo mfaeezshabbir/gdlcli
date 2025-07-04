@@ -1,5 +1,5 @@
 """
-Utility functions for gdl package.
+Utility functions for gdlcli package.
 Contains helper functions and the simple download interface.
 """
 
@@ -13,7 +13,7 @@ from urllib.parse import urlparse, parse_qs
 
 def setup_logging(level: str = "INFO") -> logging.Logger:
     """Setup logging configuration."""
-    logger = logging.getLogger("gdl")
+    logger = logging.getLogger("gdlcli")
     logger.setLevel(getattr(logging, level.upper(), logging.INFO))
     
     if not logger.handlers:
@@ -160,12 +160,12 @@ def download(url: str, output_path: str, **kwargs) -> bool:
     Args:
         url: Google Drive URL
         output_path: Output file path
-        **kwargs: Additional options for GDL
+        **kwargs: Additional options for gdlcli
         
     Returns:
         True if download successful, False otherwise
     """
-    from .downloader import GDL
+    from .downloader import gdlcli
     
-    downloader = GDL(**kwargs)
+    downloader = gdlcli(**kwargs)
     return downloader.download_file(url, output_path)

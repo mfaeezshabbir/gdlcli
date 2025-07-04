@@ -1,11 +1,11 @@
 """
-Test configuration for gdl package.
+Test configuration for gdlcli package.
 """
 
 import pytest
 import os
 import tempfile
-from gdl.config import Config
+from gdlcli.config import Config
 
 
 class TestConfig:
@@ -47,9 +47,9 @@ class TestConfig:
     def test_env_var_loading(self):
         """Test loading configuration from environment variables."""
         # Set environment variables
-        os.environ['GDL_CHUNK_SIZE'] = '65536'
-        os.environ['GDL_MAX_RETRIES'] = '7'
-        os.environ['GDL_VERIFY_SSL'] = 'false'
+        os.environ['gdlcli_CHUNK_SIZE'] = '65536'
+        os.environ['gdlcli_MAX_RETRIES'] = '7'
+        os.environ['gdlcli_VERIFY_SSL'] = 'false'
         
         try:
             config = Config()
@@ -58,6 +58,6 @@ class TestConfig:
             assert config.get('verify_ssl') is False
         finally:
             # Clean up environment variables
-            for key in ['GDL_CHUNK_SIZE', 'GDL_MAX_RETRIES', 'GDL_VERIFY_SSL']:
+            for key in ['gdlcli_CHUNK_SIZE', 'gdlcli_MAX_RETRIES', 'gdlcli_VERIFY_SSL']:
                 if key in os.environ:
                     del os.environ[key]
