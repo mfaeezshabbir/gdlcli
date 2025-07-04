@@ -1,0 +1,11 @@
+{
+    "_comment": "Example configuration file for gdl",
+    "output_dir": "./downloads",
+    "chunk_size": 8192,
+    "max_retries": 3,
+    "retry_delay": 1.0,
+    "timeout": 30,
+    "verify_ssl": true,
+    "auto_create_dirs": true,
+    "log_level": "INFO"
+}

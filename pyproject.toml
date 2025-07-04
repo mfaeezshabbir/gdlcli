@@ -1,0 +1,64 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gdl"
+version = "1.0.0"
+description = "A fast, lightweight Python package for downloading any file from Google Drive"
+readme = "README.md"
+license = "MIT"
+authors = [{name = "mfaeezshabbir", email = "mfaeezshabbir@gmail.com"}]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: System :: Archiving",
+    "Topic :: Utilities",
+]
+keywords = ["google-drive", "download", "file-downloader", "cli", "api"]
+dependencies = [
+    "requests>=2.25.1",
+    "tqdm>=4.62.0",
+]
+requires-python = ">=3.6"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.10",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+]
+
+[project.scripts]
+gdl = "gdl.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/mfaeezshabbir/gdl"
+"Bug Reports" = "https://github.com/mfaeezshabbir/gdl/issues"
+Source = "https://github.com/mfaeezshabbir/gdl"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gdl*"]
+
+[tool.black]
+line-length = 88
+target-version = ["py36"]
+
+[tool.mypy]
+python_version = "3.6"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
