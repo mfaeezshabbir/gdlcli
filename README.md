@@ -7,6 +7,7 @@
 [![PyPI version](https://badge.fury.io/py/gdlcli.svg)](https://badge.fury.io/py/gdlcli)
 [![Python versions](https://img.shields.io/pypi/pyversions/gdlcli.svg)](https://pypi.org/project/gdlcli/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PyPI Downloads](https://static.pepy.tech/personalized-badge/gdlcli?period=total&units=INTERNATIONAL_SYSTEM&left_color=BLACK&right_color=GREEN&left_text=downloads)](https://pepy.tech/projects/gdlcli)
 
 <!-- [![Downloads](https://pepy.tech/badge/gdlcli)](https://pepy.tech/project/gdlcli) -->
 
